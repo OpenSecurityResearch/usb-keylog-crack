@@ -3,4 +3,7 @@ By Michael G. Spohn
 ----------------------------------------
 
 Teensy code to brute force the unlock code of 
-a USB keylogger
+a USB keylogger 
+
+See http://blog.opensecurityresearch.com/ for 
+more info
