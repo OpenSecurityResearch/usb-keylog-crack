@@ -1,4 +1,13 @@
-/* Keyboard example with debug channel, for Teensy USB Development Board
+/* usb_keylog_crack.c - Unlock code brute forcers for USB 
+ *			keyloggers
+ *
+ * Originally written by Michael G. Spohn
+ * Updated by brad.antoniewicz@foundstone.com
+ * see blog.opensecurityresearch.com for more info
+ *
+ *
+ * Based on example code from:
+ * Keyboard example with debug channel, for Teensy USB Development Board
  * http://www.pjrc.com/teensy/usb_keyboard.html
  * Copyright (c) 2008 PJRC.COM, LLC
  * 
@@ -30,7 +39,7 @@
 #include "usb_keylog_crack.h"
 #include <string.h>
 #include <stdio.h>
-#include "usb_debug_only.h"
+//#include "usb_debug_only.h"
 
 
 #define LED_CONFIG	(DDRD |= (1<<6))
@@ -206,7 +215,7 @@ int main(void)
 				_delay_ms(DELAY_MS);
 
 				lCrackCount++;
-				phex16(lCrackCount); print(") "); phex16(crack_code_0[x]); print(" "); phex16(crack_code_1[y]); print(" "); phex16(crack_code_2[z]); print("\n");
+				phex16(lCrackCount); print(") "); print("Trying: "); pchar(*key_char_alpha[x]); pchar(*key_char_alpha[y]); pchar(*key_char_alpha[z]); print(" (");  phex16(crack_code_0[x]); print(" "); phex16(crack_code_1[y]); print(" "); phex16(crack_code_2[z]); print(")\n");
 				if(lCrackCount % 100 == 0)
 				{	
 					led_flash();

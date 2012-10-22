@@ -1,5 +1,7 @@
 USB Keylogger Brute Forcer
 By Michael G. Spohn 
+
+Updates/Details by Brad Antoniewicz
 ----------------------------------------
 
 Teensy code to brute force the unlock code of 
@@ -7,3 +9,34 @@ a USB keylogger
 
 See http://blog.opensecurityresearch.com/ for 
 more info
+
+To build:
+
+	apt-get install gcc-avr binutils-avr avr-libc
+	wget http://www.pjrc.com/teensy/teensy_loader_cli.2.0.tar.gz
+        tar -zxvf teensy_loader_cli.2.0.tar.gz
+
+	cd usb-keylog-crack 
+	make all
+
+	[ Set TEENSY_LOADER_CLI in Makefile ]
+	[ Plug in Teensy 2.0, press reset button ]
+	
+	make program
+	
+	cd ~/
+	
+	wget http://www.pjrc.com/teensy/hid_listen_1.01.zip
+	unzip hid_listen_1.01.zip
+
+	cd hid_listen
+	make
+
+To run:
+
+	cd ~/hid_listen
+	./hid_listen
+
+	[ Connect Teensy 2.0 with USB Keylogger ]
+	[ Plug into computer, wait for it to remount ]
+
